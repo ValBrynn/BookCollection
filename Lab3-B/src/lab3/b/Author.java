@@ -15,7 +15,7 @@ public class Author {
     
     public Author()
     {
-       name= null;
+       name= "";
     }
     
     public Author( String name )
@@ -31,5 +31,10 @@ public class Author {
     public void setNewName(String name)
     {
         this.name=name;
+    }
+    
+    public String toString()
+    {
+       return "Author: "+name;
     }
 }
