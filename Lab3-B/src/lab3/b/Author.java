@@ -7,7 +7,7 @@ package lab3.b;
 
 /**
  *
- * @author FarHad
+ * @author FarHad Salehi and Tahir Sabe
  */
 public class Author {
 

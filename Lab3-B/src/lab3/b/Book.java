@@ -7,7 +7,7 @@ package lab3.b;
 
 /**
  *
- * @author FarHad
+ * @author FarHad Salehi and Tahir Sabe
  */
 public class Book {
     
@@ -18,8 +18,8 @@ public class Book {
      
     public Book()
     {
-       isbn=null;
-       title=null;
+       isbn="";
+       title="";
        edition=0;
        price=0;
     }
