@@ -71,6 +71,7 @@ public class Book implements Comparable<Book>{
 	@Override
 	public int compareTo(Book other) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		ArrayList<String> authors = new ArrayList<>();
 		for(int i=0; i<authors.size(); i++) {
 			authors.add(authors.get(i).toString());
@@ -82,6 +83,10 @@ public class Book implements Comparable<Book>{
 		} 
 		else 
 			return 1;
+=======
+	
+          return 0;
+>>>>>>> 27136a820bc259504e09601bd53560cd3f745e5f
 =======
 	
           return 0;
