@@ -1,5 +1,7 @@
 package lab3.b;
 
+import java.util.ArrayList;
+
 public class Test_Main {
 	
 	public static void main(String[] args) {
@@ -9,13 +11,18 @@ public class Test_Main {
 	Author farhad = new Author("Farhad");
 	Author armin = new Author("Armin Halilovic");
 	Author johnny = new Author("Crazy OS Guy");
-
+    
+        
 	
 	System.out.println(book1.toString());
 	book1.addAuthor(farhad);
         book1.addAuthor(armin);
 	System.out.println(book1.toString());
 	
-	//System.out.println(book2.toString());
+        ArrayList<Book> booklist = new ArrayList<>();
+        booklist.add(book2);
+        booklist.add(book1);
+        CollectionOfBooks cb= new CollectionOfBooks(booklist);
+	System.out.println(cb);
 	}
 }
