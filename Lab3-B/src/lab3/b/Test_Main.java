@@ -10,7 +10,11 @@ public class Test_Main {
 	Author armin = new Author("Armin Halilovic");
 	Author johnny = new Author("Crazy OS Guy");
 
+	
 	System.out.println(book1.toString());
-	System.out.println(book2.toString());
+	book1.addAuthor(farhad);
+	System.out.println(book1.toString());
+	
+	//System.out.println(book2.toString());
 	}
 }

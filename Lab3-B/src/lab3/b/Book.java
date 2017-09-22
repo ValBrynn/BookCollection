@@ -18,7 +18,7 @@ public class Book implements Comparable<String>{
     private int edition;
     private double price;
     
-    private ArrayList<Author> authors;
+    private ArrayList<Author> authors = new ArrayList<>();
      
     public Book()
     {
@@ -68,10 +68,16 @@ public class Book implements Comparable<String>{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "Book [isbn=" + isbn + ", title=" + title + ", edition=" + edition + ", price=" + price + "]";
+		String info = "Book [isbn=" + isbn + ", title=" + title + ", edition=" + edition + ", price=" + price + "]";
+		if(authors.size() > 0) { 
+			for(int i=0; i<authors.size(); i++) {
+				info+= " "+authors.get(i).toString()+",";
+			}
+		}
+		return info;
 	}
     
 }
