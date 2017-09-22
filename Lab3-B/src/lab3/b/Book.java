@@ -66,33 +66,45 @@ public class Book implements Comparable<Book>{
        return (ArrayList<Author>) authors.clone();
     }
     
-    
-    
-	@Override
-	public int compareTo(Book other) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-		ArrayList<String> authors = new ArrayList<>();
-		for(int i=0; i<authors.size(); i++) {
-			authors.add(authors.get(i).toString());
+    public Author getAuthor(Author x)
+    {
+    	for(int i=0; i<authors.size(); i++) {
+			if(x.equals(authors.get(i))){
+				return(authors.get(i));
+			}
 		}
+    	return x;
+    }
+    
+    public void removeAuthor(Author x)
+    {
+    	for(int i=0; i<authors.size(); i++) {
+			if(x.equals(authors.get(i))){
+				authors.remove(i);
+			}
+    	}
+    }
+    
+    
+    @Override
+	public int compareTo(Book other) {
 		if(title.compareTo(other.title)< 0) 
 			return -1;
 		else if(title.compareTo(other.title)== 0) {
-			
+			for(Author author: authors)
+			{
+				if(author.toString().compareTo(other.authors.toString())< 0)
+					return -1;
+				else if(author.toString().compareTo(other.authors.toString())== 0)
+					return 0;
+				else 
+					return 1;				
+			}
+			return 0;
 		} 
 		else 
 			return 1;
-=======
-	
-          return 0;
->>>>>>> 27136a820bc259504e09601bd53560cd3f745e5f
-=======
-	
-          return 0;
->>>>>>> 27136a820bc259504e09601bd53560cd3f745e5f
 	}
-
 	
 	@Override
 	public String toString() {
