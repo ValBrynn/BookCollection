@@ -57,5 +57,10 @@ public class Book implements Comparable<String>{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public String toString() {
+		return "Book [isbn=" + isbn + ", title=" + title + ", edition=" + edition + ", price=" + price + "]";
+	}
     
 }
