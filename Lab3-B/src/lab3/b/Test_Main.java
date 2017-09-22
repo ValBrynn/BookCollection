@@ -13,6 +13,7 @@ public class Test_Main {
 	
 	System.out.println(book1.toString());
 	book1.addAuthor(farhad);
+        book1.addAuthor(armin);
 	System.out.println(book1.toString());
 	
 	//System.out.println(book2.toString());
