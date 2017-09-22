@@ -5,6 +5,8 @@
  */
 package lab3.b;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author FarHad Salehi and Tahir Sabe
@@ -15,6 +17,8 @@ public class Book implements Comparable<String>{
     private String title;
     private int edition;
     private double price;
+    
+    private ArrayList<Author> authors;
      
     public Book()
     {
@@ -51,7 +55,14 @@ public class Book implements Comparable<String>{
     {
        return price;
     }
-
+   
+    public void addAuthor(Author newAuthor)
+    {
+       authors.add(newAuthor);
+    }
+    
+    
+    
 	@Override
 	public int compareTo(String o) {
 		// TODO Auto-generated method stub
