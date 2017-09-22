@@ -11,4 +11,17 @@ package lab3.b;
  */
 public class UserInterface {
     
+    public void menu(){
+    
+    }
+    
+    public void addBook()
+    {
+    
+    }
+    
+    public void getBooksByTitle(String title)
+    {
+        
+    }
 }
