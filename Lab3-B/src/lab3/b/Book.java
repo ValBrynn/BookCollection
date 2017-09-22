@@ -20,69 +20,51 @@ public class Book implements Comparable<Book>{
     
     private ArrayList<Author> authors = new ArrayList<>();
      
-    public Book()
-    {
+    public Book() {
        isbn="";
        title="";
        edition=0;
        price=0;
     }
     
-    public Book(String isbn,String title,int edition, double price  )
-    {
+    public Book(String isbn,String title,int edition, double price) {
        this.isbn=isbn;
        this.title=title;
        this.edition=edition;
        this.price=price;
     }
     
-    public String getIsbn()
-    {
+    public String getIsbn(){
        return isbn;
     }
     
-    public String getTitle()
-    {
+    public String getTitle(){
        return title;
     }
     
-    public int getEdition()
-    {
+    public int getEdition(){
        return edition;
     }
     
-    public double getPrice()
-    {
+    public double getPrice(){
        return price;
     }
    
-    public void addAuthor(Author newAuthor)
-    {
+    public void addAuthor(Author newAuthor){
        authors.add(newAuthor);
     }
     
-    public ArrayList<Author> getAuthor()
-    {
+    public ArrayList<Author> getAuthors() {
        return (ArrayList<Author>) authors.clone();
     }
-    
-    public Author getAuthor(Author x)
-    {
+        
+    public void removeAuthor(Author toRemove) {
     	for(int i=0; i<authors.size(); i++) {
-			if(x.equals(authors.get(i))){
-				return(authors.get(i));
-			}
-		}
-    	return x;
-    }
-    
-    public void removeAuthor(Author x)
-    {
-    	for(int i=0; i<authors.size(); i++) {
-			if(x.equals(authors.get(i))){
-				authors.remove(i);
-			}
-    	}
+			if(authors.get(i).toString().compareTo(toRemove.toString())== 0){
+	    		authors.remove(i);
+	    	}
+	    	else System.out.println(toRemove + " does not exist among authors");
+	    }
     }
     
     
@@ -93,7 +75,7 @@ public class Book implements Comparable<Book>{
 		else if(title.compareTo(other.title)== 0) {
 			for(Author author: authors)
 			{
-				if(author.toString().compareTo(other.authors.toString())< 0)
+				if(author.toString().compareTo(other.authors.toString())> 0)
 					return -1;
 				else if(author.toString().compareTo(other.authors.toString())== 0)
 					return 0;
@@ -108,12 +90,13 @@ public class Book implements Comparable<Book>{
 	
 	@Override
 	public String toString() {
-		String info = "Book [isbn=" + isbn + ", title=" + title + ", edition=" + edition + ", price=" + price + "]";
+		String info = "\nBook: "+ title + " " + edition + "th ed.\n";
 		if(authors.size() > 0) { 
 			for(int i=0; i<authors.size(); i++) {
 				info+= " "+authors.get(i).toString()+",";
 			}
 		}
+		info+= "\n ISBN: " + isbn +", price=" + price + "]\n";
 		return info;
 	}
     

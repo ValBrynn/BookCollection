@@ -9,32 +9,28 @@ package lab3.b;
  *
  * @author FarHad Salehi and Tahir Sabe
  */
+
 public class Author {
 
     private String name;
     
-    public Author()
-    {
+    public Author() {
        name= "";
     }
     
-    public Author( String name )
-    {
+    public Author( String name ) {
        this.name=name;
     }
     
-    public String getName()
-    {
+    public String getName() {
        return name;
     }
           
-    public void setNewName(String name)
-    {
+    public void setNewName(String name) {
         this.name=name;
     }
     
-    public String toString()
-    {
+    public String toString() {
        return name;
     }
 }

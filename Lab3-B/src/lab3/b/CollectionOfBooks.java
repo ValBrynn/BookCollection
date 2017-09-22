@@ -10,46 +10,82 @@ import java.util.List;
 
 /**
  *
- * @author FarHad
+* @author FarHad Salehi and Tahir Sabe
  */
-public class CollectionOfBooks {
+public class CollectionOfBooks{
     
-    private Book book;
     private ArrayList<Book> books;
             
-//    public CollectionOfBooks(Book book){
-//    
-//      books.add(book);
-//    }
-    
-    public CollectionOfBooks(ArrayList<Book> addedBooks)
-    {
-        books=addedBooks;
+    public CollectionOfBooks() {
+    	books = new ArrayList<>();    	
     }
     
-    public int getNrOfBooks()
-    {
-       return books.size();
+    public CollectionOfBooks(ArrayList<Book> books) {
+        this.books = books;
+    }
+    
+    public int getNrOfBooks() {
+    	return books.size();
     }
             
-    public void addBook(Book book)
-    {
-      books.add(book);
+    public void addBook(Book addedBook){
+    	books.add(addedBook);
     }
     
-    public List<Book> getBooksByTitle(String title)
-    {
-        return (ArrayList<Book>) books.clone();
+    public void removeBook(Book addedBook){
+    	books.remove(addedBook);
     }
     
+    public List<Book> getBooksByTitle(String title){
+    	ArrayList<Book> refOfBooks = new ArrayList<>();
+    	for(Book b : books) {
+        	if(b.getTitle().equals(title)) {
+        		refOfBooks.add(b);
+        	}
+        }
+    	return refOfBooks;
+    }
     
-    public String toString()
-    {
-        
-        String info =" "+books;
-        
+    public List<Book> getBooksByAuthor(String author){
+    	ArrayList<Book> refOfBooks = new ArrayList<>();
+    	ArrayList<Author> authorlist = new ArrayList<>();
+    	for(Book b : books) {
+    		authorlist = b.getAuthors();
+    		for(Author a : authorlist) {    	    	
+	    		if(a.getName().equals(author)) {
+	        		refOfBooks.add(b);
+	        	}
+    		}
+        }
+    	return refOfBooks;
+    }
+    
+    public List<Book> getBooksByAuthor(Author author){
+    	ArrayList<Book> refOfBooks = new ArrayList<>();
+    	ArrayList<Author> authorlist = new ArrayList<>();
+    	for(Book b : books) {
+    		authorlist = b.getAuthors();
+        	if(authorlist.contains(author)) {
+        		refOfBooks.add(b);
+        	}
+        }
+    	return refOfBooks;
+    }
+
+    public List<Book> getBooksByISBN(String isbn){
+    	ArrayList<Book> refOfBooks = new ArrayList<>();
+    	for(Book b : books) {
+        	if(b.getIsbn().equals(isbn)) {
+        		refOfBooks.add(b);
+        	}
+        }
+    	return refOfBooks;
+    }
+
+    
+    public String toString() {
+        String info =" " + books;
         return info;
-    
     }
     
 }

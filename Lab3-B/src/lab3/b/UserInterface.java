@@ -7,21 +7,16 @@ package lab3.b;
 
 /**
  *
- * @author FarHad
+* @author FarHad Salehi and Tahir Sabe
  */
 public class UserInterface {
     
     public void menu(){
-    
     }
     
-    public void addBook()
-    {
-    
+    public void addBook() {
     }
     
-    public void getBooksByTitle(String title)
-    {
-        
+    public void getBooksByTitle(String title) {
     }
 }
