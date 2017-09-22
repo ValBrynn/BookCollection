@@ -9,7 +9,7 @@ package lab3.b;
  *
  * @author FarHad Salehi and Tahir Sabe
  */
-public class Book {
+public class Book implements Comparable<String>{
     
     private String isbn;
     private String title;
@@ -51,5 +51,11 @@ public class Book {
     {
        return price;
     }
+
+	@Override
+	public int compareTo(String o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
     
 }
