@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author FarHad Salehi and Tahir Sabe
  */
-public class Book implements Comparable<String>{
+public class Book implements Comparable<Book>{
     
     private String isbn;
     private String title;
@@ -64,9 +64,9 @@ public class Book implements Comparable<String>{
     
     
 	@Override
-	public int compareTo(String o) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int compareTo(Book other) {
+	
+          return 0;
 	}
 	
 	@Override
