@@ -1,17 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package lab3.b;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- *
- * @author FarHad Salehi and Tahir Sabe
- */
-public class Book implements Comparable<Book>{
+public class Book implements Comparable<Book>,Serializable{
     
     private String isbn;
     private String title;

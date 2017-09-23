@@ -1,18 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package lab3.b;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
-* @author FarHad Salehi and Tahir Sabe
- */
-public class CollectionOfBooks{
+public class CollectionOfBooks implements Serializable{
     
     private ArrayList<Book> books;
             
@@ -32,8 +22,8 @@ public class CollectionOfBooks{
     	books.add(addedBook);
     }
     
-    public void removeBook(Book addedBook){
-    	books.remove(addedBook);
+    public void removeBook(Book removedBook){
+    	books.remove(removedBook);
     }
     
     public List<Book> getBooksByTitle(String title){
