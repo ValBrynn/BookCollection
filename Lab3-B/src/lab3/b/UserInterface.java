@@ -7,6 +7,7 @@ package lab3.b;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface implements Serializable {
@@ -76,7 +77,36 @@ public class UserInterface implements Serializable {
     }
     
     public void removeBook() {
-    	collectionOfBooks.removeBook(null);
+        
+        int answer;
+        String toRemove=" ";
+        ArrayList<Book> removedBooks=new ArrayList<Book>();
+        
+        System.out.println("Do you want to search and remove by 1- Title 2- Author 3- ISBN ");
+        answer=  Integer.parseInt(scan.nextLine());
+        
+        System.out.println(answer);
+        
+        switch (answer){
+            
+            case 1:  System.out.println("Enter title: ");         
+                     toRemove = scan.nextLine();
+                     removedBooks = collectionOfBooks.getBooksByTitle(toRemove);
+                     break;
+            case 2:  System.out.println("Enter Author(s):");
+                     toRemove = scan.nextLine();
+                     removedBooks =  collectionOfBooks.getBooksByAuthor(toRemove);
+                     break;
+            case 3:  System.out.println("Enter ISBN: ");
+                     toRemove = scan.nextLine();
+                     removedBooks =  collectionOfBooks.getBooksByISBN(toRemove);
+                     break;
+            default: System.out.println("Unknown command");
+                    
+    }
+         for(Book b: removedBooks)
+              collectionOfBooks.removeBook(b);
+    	
     }
     
     public void getBooksByTitle(String title){ 
