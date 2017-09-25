@@ -1,5 +1,11 @@
 package lab3.b;
 
+
+/**
+ *
+* @author FarHad Salehi and Tahir Sabe
+ */
+
 import java.io.Serializable;
 
 public class Author implements Serializable{
