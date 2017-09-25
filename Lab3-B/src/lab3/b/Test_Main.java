@@ -30,7 +30,7 @@ public class Test_Main {
 //		System.out.println(bk5);
 //		System.out.println(bkList);
 		
-		Author andersLindström = new Author("Anders Lindström");
+		Author andersLindstrom = new Author("Anders Lindstrï¿½m");
 		Author armin = new Author("Armin");
 		Author nicklas = new Author("Nicklas");
 		Author notZebra = new Author("Not A Zebra");
@@ -38,7 +38,7 @@ public class Test_Main {
 		Author farhad = new Author("Farhad");
 		
 		bk1.addAuthor(nicklas);
-		bk2.addAuthor(andersLindström);
+		bk2.addAuthor(andersLindstrom);
 		bk3.addAuthor(yared);
 		bk3.addAuthor(farhad);
 		bk4.addAuthor(armin);
@@ -54,7 +54,7 @@ public class Test_Main {
 		CollectionOfBooks collection = new CollectionOfBooks(bkList);
 		//System.out.println(collection.toString());
 //		System.out.println(collection.getBooksByAuthor(farhad));
-//		System.out.println(collection.getBooksByAuthor("Anders Lindström"));
+//		System.out.println(collection.getBooksByAuthor("Anders Lindstrï¿½m"));
 //		System.out.println(collection.getBooksByISBN(bk4.getIsbn()));
 //		System.out.println(collection.getBooksByTitle(bk4.getTitle()));
 //		System.out.println(collection.toString());

@@ -1,3 +1,5 @@
+package lab3.b;
+
 import java.io.Serializable;
 
 public class Author implements Serializable{

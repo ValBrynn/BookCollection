@@ -1,3 +1,5 @@
+package lab3.b;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +9,7 @@ public class CollectionOfBooks implements Serializable{
     private ArrayList<Book> books;
             
     public CollectionOfBooks() {
-    	books = new ArrayList<>();    	
+    	books = new ArrayList<Book>();    	
     }
     
     public CollectionOfBooks(ArrayList<Book> books) {
@@ -19,7 +21,9 @@ public class CollectionOfBooks implements Serializable{
     }
             
     public void addBook(Book addedBook){
+        
     	books.add(addedBook);
+        
     }
     
     public void removeBook(Book removedBook){
@@ -71,6 +75,10 @@ public class CollectionOfBooks implements Serializable{
         }
     	return refOfBooks;
     }
+    
+    public ArrayList<Book> getTheBooks() {
+		return books;
+	}
 
     
     public String toString() {

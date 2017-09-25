@@ -1,3 +1,5 @@
+package lab3.b;
+
 /**
  *
 * @author FarHad Salehi and Tahir Sabe
@@ -9,12 +11,15 @@ import java.util.Scanner;
 
 public class UserInterface implements Serializable {
 
-	private Scanner scan;
-	CollectionOfBooks collectionOfBooks = new CollectionOfBooks();
-	CollectionOfBooksHelpWithSerialization ser = new CollectionOfBooksHelpWithSerialization();
+	private Scanner scan= new Scanner(System.in);
+	private CollectionOfBooks collectionOfBooks;
+	private CollectionOfBooksHelpWithSerialization ser;
+        
 
     public UserInterface() {
     	scan = new Scanner(System.in);
+        collectionOfBooks = new CollectionOfBooks();
+        ser = new CollectionOfBooksHelpWithSerialization();
     }
    
     public void run() throws ClassNotFoundException, IOException {
@@ -30,12 +35,22 @@ public class UserInterface implements Serializable {
     		switch(choice) {
     			case 'A':	addBook(); break;
     			case 'R':	removeBook(); break;
-    			case 'T':	getBooksByTitle("tillfällig"); break;
-    			case 'W':	getBooksByAuthor("tillfällig"); break;
-    			case 'I':	getBooksByISBN("tillfällig"); break;
-    			case 'Z':	getAllBooks(); break;
-    			case 'X':	ser.serializeToFile("Fil1.ser");
-    						System.out.println("Bye, bye!"); break;
+                                        
+                        case 'T':
+                                        
+                                        System.out.println("Enter Title:  ");
+    				        getBooksByTitle(scan.nextLine()); break;
+    			case 'W':
+                                        System.out.println("Enter Author:  ");
+                                        getBooksByAuthor(scan.nextLine()); break;
+    			case 'I':	
+                                        System.out.println("Enter ISBN:  ");
+                                        getBooksByISBN(scan.nextLine()); break;
+    			case 'Z':	System.out.println(getAllBooks()); break;
+    			case 'X':	System.out.println(this.getAllBooks());
+                                        ser.setTheBooks(collectionOfBooks.getTheBooks());
+                                        ser.serializeToFile("Fil1.ser");
+    					System.out.println("Exiting..!"); break;
     			default: 	System.out.println("Unknown command");
     		}	
     	} while(choice != 'X');
@@ -46,40 +61,39 @@ public class UserInterface implements Serializable {
     	int edition;
     	double price;
     	
-    	Book book = new Book();
-    	Author newAuthor = new Author();
-    	
     	System.out.println("input in this order: ISBN, title, edition, "
     			+ "\nprice & Author");
     	isbn = scan.nextLine();
     	title = scan.nextLine();
     	edition = Integer.parseInt(scan.nextLine());
     	price = Double.parseDouble(scan.nextLine());
-    	book = new Book(isbn,title,edition,price);
+    	Book book = new Book(isbn,title,edition,price);
     	name = scan.nextLine();
-    	newAuthor = new Author(name); 
+    	Author newAuthor = new Author(name); 
     	book.addAuthor(newAuthor);
     	collectionOfBooks.addBook(book);
+            
     }
     
     public void removeBook() {
     	collectionOfBooks.removeBook(null);
     }
     
-    public void getBooksByTitle(String title) {
-    	collectionOfBooks.getBooksByTitle(title);
+    public void getBooksByTitle(String title){ 
+       
+        System.out.println(collectionOfBooks.getBooksByTitle(title).toString());
     }
 
     public void getBooksByAuthor(String author) {
-    	collectionOfBooks.getBooksByAuthor(author);
+        System.out.println((collectionOfBooks.getBooksByAuthor(author).toString()));
     }
     
     public void getBooksByISBN(String isbn) {
-    	collectionOfBooks.getBooksByISBN(isbn);
+    	   System.out.println(collectionOfBooks.getBooksByISBN(isbn).toString());
     }
     
-    public void getAllBooks() {
-    	collectionOfBooks.toString();
+    public String getAllBooks() {
+    	  return collectionOfBooks.toString();
     }
     
     public void printMenu() {
@@ -101,7 +115,9 @@ public class UserInterface implements Serializable {
     	answer += ".ser";
     	System.out.println(answer);
     	ser.deSerializeFromFile(answer);
+        System.out.println(this.getAllBooks());
     	collectionOfBooks = new CollectionOfBooks(ser.getTheBooks());
+        System.out.println(this.collectionOfBooks);
     }
     
     public static void main(String[] args) throws ClassNotFoundException, IOException {

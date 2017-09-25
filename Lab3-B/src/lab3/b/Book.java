@@ -1,3 +1,5 @@
+package lab3.b;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -8,7 +10,7 @@ public class Book implements Comparable<Book>,Serializable{
     private int edition;
     private double price;
     
-    private ArrayList<Author> authors = new ArrayList<>();
+    private ArrayList<Author> authors = new ArrayList<Author>();
      
     public Book() {
        isbn="";
@@ -65,7 +67,7 @@ public class Book implements Comparable<Book>,Serializable{
 		else if(title.compareTo(other.title)== 0) {
 			for(Author author: authors)
 			{
-				if(author.toString().compareTo(other.authors.toString())> 0)
+				if(author.toString().compareTo(other.authors.toString())> 0) 
 					return -1;
 				else if(author.toString().compareTo(other.authors.toString())== 0)
 					return 0;

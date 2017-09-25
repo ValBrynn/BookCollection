@@ -1,3 +1,5 @@
+package lab3.b;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -63,6 +65,10 @@ public class CollectionOfBooksHelpWithSerialization implements Serializable {
 
 	public ArrayList<Book> getTheBooks() {
 		return theBooks;
+	}
+        
+        public void setTheBooks(ArrayList<Book> books) {
+		theBooks = books;
 	}
 	
 	// ...
