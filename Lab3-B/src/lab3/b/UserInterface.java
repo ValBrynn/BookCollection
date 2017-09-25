@@ -58,20 +58,32 @@ public class UserInterface implements Serializable {
     }
     
     public void addBook() {
-    	String isbn,title,name;
+    	String isbn,title,name,answer;
     	int edition;
     	double price;
-    	
+        Author newAuthor;
+    	boolean add;
+        
     	System.out.println("input in this order: ISBN, title, edition, "
     			+ "\nprice & Author");
-    	isbn = scan.nextLine();
+    	
+        isbn = scan.nextLine();
     	title = scan.nextLine();
     	edition = Integer.parseInt(scan.nextLine());
     	price = Double.parseDouble(scan.nextLine());
     	Book book = new Book(isbn,title,edition,price);
-    	name = scan.nextLine();
-    	Author newAuthor = new Author(name); 
-    	book.addAuthor(newAuthor);
+    	
+        do{    
+            add = false;
+            name = scan.nextLine();
+            newAuthor = new Author(name); 
+            book.addAuthor(newAuthor);
+            System.out.println("Would you like to add another Author answer \"Y\" then");
+            answer = scan.nextLine();
+            if(answer.compareTo("Y")==0){ 
+                add = true;    
+            }
+        }while(add);
     	collectionOfBooks.addBook(book);
             
     }
