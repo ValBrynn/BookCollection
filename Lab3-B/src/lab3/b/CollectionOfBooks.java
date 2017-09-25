@@ -27,9 +27,7 @@ public class CollectionOfBooks implements Serializable{
     }
             
     public void addBook(Book addedBook){
-        
     	books.add(addedBook);
-        
     }
     
     public void removeBook(Book removedBook){

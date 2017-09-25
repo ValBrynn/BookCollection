@@ -15,12 +15,14 @@ public class UserInterface implements Serializable {
 	private Scanner scan= new Scanner(System.in);
 	private CollectionOfBooks collectionOfBooks;
 	private CollectionOfBooksHelpWithSerialization ser;
+	private String fileName;
         
 
     public UserInterface() {
     	scan = new Scanner(System.in);
         collectionOfBooks = new CollectionOfBooks();
         ser = new CollectionOfBooksHelpWithSerialization();
+        fileName = " ";
     }
    
     public void run() throws ClassNotFoundException, IOException {
@@ -50,7 +52,7 @@ public class UserInterface implements Serializable {
     			case 'Z':	System.out.println(getAllBooks()); break;
     			case 'X':	System.out.println(this.getAllBooks());
                                         ser.setTheBooks(collectionOfBooks.getTheBooks());
-                                        ser.serializeToFile("Fil1.ser");
+                                        ser.serializeToFile(fileName);
     					System.out.println("Exiting..!"); break;
     			default: 	System.out.println("Unknown command");
     		}	
@@ -58,7 +60,8 @@ public class UserInterface implements Serializable {
     }
     
     public void addBook() {
-    	String isbn,title,name,answer;
+    	String isbn,title,name;
+    	String answer = " ";
     	int edition;
     	double price;
         Author newAuthor;
@@ -78,9 +81,9 @@ public class UserInterface implements Serializable {
             name = scan.nextLine();
             newAuthor = new Author(name); 
             book.addAuthor(newAuthor);
-            System.out.println("Would you like to add another Author answer \"Y\" then");
+            System.out.println("Would you like to add another Author answer \"y\" then");
             answer = scan.nextLine();
-            if(answer.compareTo("Y")==0){ 
+            if(answer.compareTo("y")==0){ 
                 add = true;    
             }
         }while(add);
@@ -151,15 +154,13 @@ public class UserInterface implements Serializable {
     }
     
     public void chooseFile() throws ClassNotFoundException, IOException {
-    	String answer = "Fil1";
     	System.out.println("\nChoose a filename:");
-    	//answer += scan.nextLine();
-    	answer += ".ser";
-    	System.out.println(answer);
-    	ser.deSerializeFromFile(answer);
+    	fileName = scan.nextLine();
+    	fileName += ".ser";
+    	System.out.println(fileName);
+    	ser.deSerializeFromFile(fileName);
         System.out.println(this.getAllBooks());
-    	collectionOfBooks = new CollectionOfBooks(ser.getTheBooks());
-        System.out.println(this.collectionOfBooks);
+        collectionOfBooks = new CollectionOfBooks(ser.getTheBooks());
     }
     
     public static void main(String[] args) throws ClassNotFoundException, IOException {

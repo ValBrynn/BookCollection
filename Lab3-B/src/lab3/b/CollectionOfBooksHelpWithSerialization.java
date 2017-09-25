@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class CollectionOfBooksHelpWithSerialization implements Serializable {
 
-	private ArrayList<Book> theBooks;
+	private ArrayList<Book> theBooks = new ArrayList<Book>();
 	
 	// ...
 	
