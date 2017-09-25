@@ -1,5 +1,11 @@
 package lab3.b;
 
+
+/**
+ *
+* @author FarHad Salehi and Tahir Sabe
+ */
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +36,7 @@ public class CollectionOfBooks implements Serializable{
     	books.remove(removedBook);
     }
     
-    public List<Book> getBooksByTitle(String title){
+    public ArrayList<Book> getBooksByTitle(String title){
     	ArrayList<Book> refOfBooks = new ArrayList<>();
     	for(Book b : books) {
         	if(b.getTitle().equals(title)) {
@@ -40,7 +46,7 @@ public class CollectionOfBooks implements Serializable{
     	return refOfBooks;
     }
     
-    public List<Book> getBooksByAuthor(String author){
+    public ArrayList<Book> getBooksByAuthor(String author){
     	ArrayList<Book> refOfBooks = new ArrayList<>();
     	ArrayList<Author> authorlist = new ArrayList<>();
     	for(Book b : books) {
@@ -54,7 +60,7 @@ public class CollectionOfBooks implements Serializable{
     	return refOfBooks;
     }
     
-    public List<Book> getBooksByAuthor(Author author){
+    public ArrayList<Book> getBooksByAuthor(Author author){
     	ArrayList<Book> refOfBooks = new ArrayList<>();
     	ArrayList<Author> authorlist = new ArrayList<>();
     	for(Book b : books) {
@@ -66,7 +72,7 @@ public class CollectionOfBooks implements Serializable{
     	return refOfBooks;
     }
 
-    public List<Book> getBooksByISBN(String isbn){
+    public ArrayList<Book> getBooksByISBN(String isbn){
     	ArrayList<Book> refOfBooks = new ArrayList<>();
     	for(Book b : books) {
         	if(b.getIsbn().equals(isbn)) {
