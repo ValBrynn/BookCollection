@@ -17,14 +17,20 @@ public class UserInterface implements Serializable {
 	private CollectionOfBooksHelpWithSerialization ser;
 	private String fileName;
         
-
+    /**
+     * 
+     */
     public UserInterface() {
     	scan = new Scanner(System.in);
         collectionOfBooks = new CollectionOfBooks();
         ser = new CollectionOfBooksHelpWithSerialization();
         fileName = " ";
     }
-   
+   /**
+    * 
+    * @throws ClassNotFoundException
+    * @throws IOException 
+    */
     public void run() throws ClassNotFoundException, IOException {
     	char choice = ' ';
     	String answer;
@@ -59,6 +65,9 @@ public class UserInterface implements Serializable {
     	} while(choice != 'X');
     }
     
+    /**
+     * Adds book to the list and the file
+     */
     public void addBook() {
     	String isbn,title,name;
     	String answer = " ";
@@ -90,7 +99,9 @@ public class UserInterface implements Serializable {
     	collectionOfBooks.addBook(book);
             
     }
-    
+    /**
+     * Removes a book from the list and the file 
+     */
     public void removeBook() {
         
         int answer;
@@ -124,23 +135,41 @@ public class UserInterface implements Serializable {
     	
     }
     
+    /**
+     * 
+     * @param title 
+     */
     public void getBooksByTitle(String title){ 
        
         System.out.println(collectionOfBooks.getBooksByTitle(title).toString());
     }
-
+    
+    /**
+     * 
+     * @param author 
+     */
     public void getBooksByAuthor(String author) {
         System.out.println((collectionOfBooks.getBooksByAuthor(author).toString()));
     }
-    
+    /**
+     * 
+     * @param isbn 
+     */
     public void getBooksByISBN(String isbn) {
     	   System.out.println(collectionOfBooks.getBooksByISBN(isbn).toString());
     }
     
+    /**
+     * 
+     * @return 
+     */
     public String getAllBooks() {
     	  return collectionOfBooks.toString();
     }
     
+    /**
+     * Prints Menu 
+     */
     public void printMenu() {
     	System.out.println("---Menu---");
     	System.out.println("A To Add a Book");
@@ -153,6 +182,11 @@ public class UserInterface implements Serializable {
     	System.out.println("----------");
     }
     
+    /**
+     * 
+     * @throws ClassNotFoundException
+     * @throws IOException 
+     */
     public void chooseFile() throws ClassNotFoundException, IOException {
     	System.out.println("\nChoose a filename:");
     	fileName = scan.nextLine();
@@ -163,6 +197,12 @@ public class UserInterface implements Serializable {
         collectionOfBooks = new CollectionOfBooks(ser.getTheBooks());
     }
     
+    /**
+     * 
+     * @param args
+     * @throws ClassNotFoundException
+     * @throws IOException 
+     */
     public static void main(String[] args) throws ClassNotFoundException, IOException {
     	UserInterface menu = new UserInterface();
     	menu.chooseFile();

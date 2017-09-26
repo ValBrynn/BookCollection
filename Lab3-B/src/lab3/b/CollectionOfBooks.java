@@ -18,6 +18,10 @@ public class CollectionOfBooks implements Serializable{
     	books = new ArrayList<Book>();    	
     }
     
+    /**
+    * Initializes collectionofbooks with an arraylist type of BOOK
+    * @param books
+    */
     public CollectionOfBooks(ArrayList<Book> books) {
         this.books = books;
     }
@@ -25,15 +29,28 @@ public class CollectionOfBooks implements Serializable{
     public int getNrOfBooks() {
     	return books.size();
     }
-            
+     
+    /**
+     * Add a book to book list
+     * @param addedBook 
+     */
     public void addBook(Book addedBook){
     	books.add(addedBook);
     }
     
+    /**
+     * Remove a book from a book list
+     * @param removedBook 
+     */
     public void removeBook(Book removedBook){
     	books.remove(removedBook);
     }
     
+    /**
+     * Search and get a book by title
+     * @param title
+     * @return 
+     */
     public ArrayList<Book> getBooksByTitle(String title){
     	ArrayList<Book> refOfBooks = new ArrayList<>();
     	for(Book b : books) {
@@ -44,6 +61,11 @@ public class CollectionOfBooks implements Serializable{
     	return refOfBooks;
     }
     
+    /**
+     * Search and get a book by the author . The param is type of string
+     * @param author
+     * @return 
+     */
     public ArrayList<Book> getBooksByAuthor(String author){
     	ArrayList<Book> refOfBooks = new ArrayList<>();
     	ArrayList<Author> authorlist = new ArrayList<>();
@@ -58,6 +80,11 @@ public class CollectionOfBooks implements Serializable{
     	return refOfBooks;
     }
     
+    /**
+     * Search and get a book by the author . Param is type of author
+     * @param author
+     * @return 
+     */
     public ArrayList<Book> getBooksByAuthor(Author author){
     	ArrayList<Book> refOfBooks = new ArrayList<>();
     	ArrayList<Author> authorlist = new ArrayList<>();
@@ -69,7 +96,12 @@ public class CollectionOfBooks implements Serializable{
         }
     	return refOfBooks;
     }
-
+    
+    /**
+     * Search and get a book by ISBN
+     * @param isbn
+     * @return 
+     */
     public ArrayList<Book> getBooksByISBN(String isbn){
     	ArrayList<Book> refOfBooks = new ArrayList<>();
     	for(Book b : books) {
@@ -80,11 +112,16 @@ public class CollectionOfBooks implements Serializable{
     	return refOfBooks;
     }
     
+    /**
+     * Get all the books
+     * @return 
+     */
     public ArrayList<Book> getTheBooks() {
 		return books;
 	}
 
     
+    @Override
     public String toString() {
         String info =" " + books;
         return info;

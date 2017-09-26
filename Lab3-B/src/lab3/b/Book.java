@@ -11,6 +11,9 @@ import java.util.ArrayList;
 
 public class Book implements Comparable<Book>,Serializable{
     
+    /*
+      Data medlems
+    */
     private String isbn;
     private String title;
     private int edition;
@@ -25,6 +28,13 @@ public class Book implements Comparable<Book>,Serializable{
        price=0;
     }
     
+     /**
+    * Initializes a new Book with isbn, title, edition and price
+    * @param isbn
+    * @param title
+    * @param edition
+    * @param price
+    */
     public Book(String isbn,String title,int edition, double price) {
        this.isbn=isbn;
        this.title=title;
@@ -48,14 +58,25 @@ public class Book implements Comparable<Book>,Serializable{
        return price;
     }
    
+    /**
+    * Add an author to the author list 
+    * @param newAuthor
+    */
     public void addAuthor(Author newAuthor){
        authors.add(newAuthor);
     }
     
+    /*
+    * Returns a copy of author list 
+    */
     public ArrayList<Author> getAuthors() {
        return (ArrayList<Author>) authors.clone();
     }
-        
+      
+     /**
+    * Removes an author from the author list 
+    * @param toRemove
+    */
     public void removeAuthor(Author toRemove) {
     	for(int i=0; i<authors.size(); i++) {
 			if(authors.get(i).toString().compareTo(toRemove.toString())== 0){
@@ -65,7 +86,10 @@ public class Book implements Comparable<Book>,Serializable{
 	    }
     }
     
-    
+    /**
+     * The books can be ranked, with title for the first key and author as the second key.
+     * @param other
+    */
     @Override
 	public int compareTo(Book other) {
 		if(title.compareTo(other.title)< 0) 

@@ -62,15 +62,22 @@ public class CollectionOfBooksHelpWithSerialization implements Serializable {
 			} catch(Exception e) {}			
 		}
 	}
-
+        
+        /**
+         * Get all the books in hte list
+         * @return 
+         */
 	public ArrayList<Book> getTheBooks() {
 		return theBooks;
 	}
         
+        /**
+         * Initializes the array list with the books
+         * @param books 
+         */
         public void setTheBooks(ArrayList<Book> books) {
 		theBooks = books;
 	}
 	
-	// ...
 }
 
