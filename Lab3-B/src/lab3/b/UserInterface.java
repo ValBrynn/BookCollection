@@ -74,7 +74,7 @@ public class UserInterface implements Serializable {
     	int edition;
     	double price;
         Author newAuthor;
-    	boolean add;
+    	int add;
         
     	System.out.println("input in this order: ISBN, title, edition, "
     			+ "\nprice & Author");
@@ -86,16 +86,16 @@ public class UserInterface implements Serializable {
     	Book book = new Book(isbn,title,edition,price);
     	
         do{    
-            add = false;
+            add = 0;
             name = scan.nextLine();
             newAuthor = new Author(name); 
             book.addAuthor(newAuthor);
             System.out.println("Would you like to add another Author answer \"y\" then");
             answer = scan.nextLine();
-            if(answer.compareTo("y")==0){ 
-                add = true;    
+            if(answer.compareToIgnoreCase("y")==0){ 
+                add = 1;    
             }
-        }while(add);
+        }while(add ==1);
     	collectionOfBooks.addBook(book);
             
     }
@@ -193,8 +193,11 @@ public class UserInterface implements Serializable {
     	fileName += ".ser";
     	System.out.println(fileName);
     	ser.deSerializeFromFile(fileName);
-        System.out.println(this.getAllBooks());
-        collectionOfBooks = new CollectionOfBooks(ser.getTheBooks());
+    	if(ser.getTheBooks() == null){
+    		collectionOfBooks = new CollectionOfBooks();
+    	}
+    	else
+    		collectionOfBooks = new CollectionOfBooks(ser.getTheBooks());
     }
     
     /**

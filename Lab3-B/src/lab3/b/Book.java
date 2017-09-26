@@ -10,10 +10,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Book implements Comparable<Book>,Serializable{
-    
-    /*
-      Data medlems
-    */
+    /**
+     * Data members
+     */
     private String isbn;
     private String title;
     private int edition;

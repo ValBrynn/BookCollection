@@ -19,7 +19,7 @@ public class CollectionOfBooks implements Serializable{
     }
     
     /**
-    * Initializes collectionofbooks with an arraylist type of BOOK
+    * Initializes collectionofbooks with an arraylist type of Book
     * @param books
     */
     public CollectionOfBooks(ArrayList<Book> books) {
@@ -62,7 +62,7 @@ public class CollectionOfBooks implements Serializable{
     }
     
     /**
-     * Search and get a book by the author . The param is type of string
+     * Search and get a book by the author . Param is type of String
      * @param author
      * @return 
      */
@@ -81,7 +81,7 @@ public class CollectionOfBooks implements Serializable{
     }
     
     /**
-     * Search and get a book by the author . Param is type of author
+     * Search and get a book by the author . Param is type of Author
      * @param author
      * @return 
      */
